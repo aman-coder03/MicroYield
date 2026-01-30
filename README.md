@@ -1,9 +1,9 @@
 # MicroYield  
 ### Save automatically. Earn effortlessly.
 
-MicroYield is a Web3-powered savings application that automates micro-deposits and generates safe yield using Stellar DeFi without exposing users to blockchain complexity.
+MicroYield is a Web3-powered savings MVP that automates micro-deposits and demonstrates yield generation using Stellar without exposing users to blockchain complexity.
 
-Built for non-crypto native users in APAC, MicroYield transforms everyday spending into automated USD-denominated savings.
+Built for non-crypto native users in APAC, MicroYield transforms everyday spending into automated USD-denominated savings through a simplified Web3 experience.
 
 ---
 
@@ -16,116 +16,109 @@ Across APAC markets:
 - Users struggle to build disciplined saving habits  
 - DeFi remains inaccessible due to wallet complexity and risk exposure  
 
-There is a clear gap between consumer-friendly savings tools and decentralized yield infrastructure.
+There is a gap between consumer-friendly savings tools and decentralized yield infrastructure.
 
 ---
 
-## 💡 Solution
+## 💡 Hackathon MVP Solution
 
-MicroYield bridges this gap by automating savings and deploying funds into low-risk Stellar DeFi strategies.
+MicroYield demonstrates:
 
-### Core Features
+- Automated micro-savings logic  
+- Stellar testnet transaction integration  
+- Yield simulation logic  
+- Simplified user dashboard  
 
-- 🔄 **Spare Change Round-Ups** (₹182 → ₹200, save ₹18)  
-- 📆 **Recurring Micro-Savings**  
-- 🎯 **Goal-Based Savings Tracking**  
-- 💰 **Stablecoin-Based Yield Generation**  
-- 🔐 **Full Blockchain Abstraction** (no seed phrases, no manual DeFi interactions)  
+### Core MVP Features
 
-Users experience MicroYield as a simple savings app not a crypto app.
+- 🔄 Spare change round-up simulation  
+- 📆 Recurring micro-savings logic  
+- 💰 Stellar testnet transaction execution  
+- 📊 Yield growth simulation  
+- 🔐 Blockchain abstraction layer  
+
+Users interact with a simple savings dashboard while blockchain interactions occur in the backend.
 
 ---
 
 ## 🏗️ Built on Stellar
 
-MicroYield leverages the Stellar network because:
+MicroYield leverages:
 
-- ✔ **Low Fees** make micropayments economically viable  
-- ✔ **Fast Finality** ensures instant savings confirmation  
-- ✔ **Soroban Smart Contracts** enable automated yield routing  
-- ✔ **Stablecoin Infrastructure** supports USD-denominated savings  
+- ✔ Low transaction fees for micropayments  
+- ✔ Fast settlement on Stellar testnet  
+- ✔ Stablecoin-ready infrastructure  
+- ✔ Expandability to Soroban smart contracts  
 
-### Integrated Protocols
+### Current Hackathon Scope
 
-- **Blend** – Lending yield  
-- **Soroswap** – DEX liquidity routing  
-- **Aquarius** – Liquidity incentives  
-- **DeFindex** – Structured yield strategies  
-
-MicroYield directly contributes to:
-
-- Increased network transactions  
-- Higher TVL on Stellar  
-- Growth in stablecoin demand  
-- Expanded DeFi protocol usage  
+- Stellar SDK integration (Python)  
+- On-chain transaction execution (testnet)  
+- Backend savings logic  
+- Future-ready design for Soroban yield routing  
 
 ---
 
-## ⚙️ Technical Architecture
+## ⚙️ Technical Architecture (MVP)
 
 ### Frontend
-- React / Next.js  
-- Mobile-first responsive UI  
-- Savings dashboard with goal tracking  
+- React / Next.js (UI dashboard)
 
 ### Backend
-- Automated savings engine  
-- Yield optimization logic  
-- Risk management module  
+- Python (FastAPI)
+- Stellar SDK integration
+- Savings automation engine
+- Yield calculation simulation
 
-### On-Chain (Stellar + Soroban)
-- Smart contract for pooled deposits  
-- Automated routing contract  
-- Yield accounting module  
-- Secure treasury management  
-
-### Custody Model
-- Embedded wallet architecture  
-- User-level balance tracking  
-- Smart account abstraction  
+### Blockchain Layer
+- Stellar Testnet transactions
+- Upgrade-ready for Soroban smart contracts
 
 ---
 
 ## 🎯 Target Users
 
-**Primary Market**
+Primary:
 - 18–35 urban professionals in India & Southeast Asia  
 
-**Secondary Market**
+Future Expansion:
 - Cross-border earners  
 - Remittance receivers  
-- Emerging market savers seeking USD exposure  
+- Users seeking USD exposure  
 
 ---
 
-## 📊 Ecosystem Impact & KPIs
+## 📊 Stellar Ecosystem Impact
 
-MicroYield increases:
+MicroYield is designed to:
 
-- New Stellar wallet creation  
-- Stablecoin deposits  
-- TVL routed to Blend & Soroswap  
-- Monthly active on-chain users  
-- Micro-transaction volume  
-
-### Year 1 Targets
-
-- 25,000 app downloads  
-- 10,000 active savers  
-- $2M cumulative deposits  
-- 70% monthly retention  
-- 15% monthly TVL growth  
+- Increase new wallet creation  
+- Increase stablecoin usage  
+- Drive micro-transaction volume  
+- Expand DeFi onboarding  
 
 ---
 
-## 💰 Business Model
+## 💰 Future Business Model
 
-- 0.5–1% performance fee on yield earned  
-- Premium tier for enhanced strategies  
+- Performance fee on yield  
+- Premium automated strategies  
 - Partner protocol incentives  
-- Treasury yield optimization  
 
-The model ensures long-term sustainability beyond grant funding.
+---
+
+## 🛣️ Roadmap
+
+### Hackathon Phase
+- MVP savings engine  
+- Stellar testnet integration  
+- Functional demo  
+
+### Post-Hackathon
+- Soroban smart contract deployment  
+- Blend integration  
+- Automated yield routing  
+- APAC beta launch  
 
 ---
 
@@ -141,6 +134,6 @@ The model ensures long-term sustainability beyond grant funding.
 
 ## 🔮 Vision
 
-MicroYield aims to become the default Web3 savings gateway for the next billion users embedding decentralized finance into familiar financial habits and making global yield accessible to everyone.
+MicroYield aims to become the default Web3 savings gateway for the next billion users embedding decentralized finance into familiar financial behaviors while leveraging Stellar as the underlying infrastructure.
 
 ---
