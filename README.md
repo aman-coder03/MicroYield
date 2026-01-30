@@ -1,7 +1,7 @@
 # MicroYield  
 ### Save automatically. Earn effortlessly.
 
-MicroYield is a Web3-powered savings application that automates micro-deposits and generates safe yield using Stellar DeFi without exposing users to blockchain complexity.
+MicroYield is a Web3-powered savings application that automates micro-deposits and generates safe yield using Stellar DeFi — without exposing users to blockchain complexity.
 
 Built for non-crypto native users in APAC, MicroYield transforms everyday spending into automated USD-denominated savings.
 
@@ -26,13 +26,13 @@ MicroYield bridges this gap by automating savings and deploying funds into low-r
 
 ### Core Features
 
-- 🔄 **Spare Change Round-Ups** (₹182 → ₹200, save ₹18)
-- 📆 **Recurring Micro-Savings**
-- 🎯 **Goal-Based Savings Tracking**
-- 💰 **Stablecoin-Based Yield Generation**
-- 🔐 **Full Blockchain Abstraction** (no seed phrases, no manual DeFi interactions)
+- 🔄 **Spare Change Round-Ups** (₹182 → ₹200, save ₹18)  
+- 📆 **Recurring Micro-Savings**  
+- 🎯 **Goal-Based Savings Tracking**  
+- 💰 **Stablecoin-Based Yield Generation**  
+- 🔐 **Full Blockchain Abstraction** (no seed phrases, no manual DeFi interactions)  
 
-Users experience MicroYield as a simple savings app not a crypto app.
+Users experience MicroYield as a simple savings app — not a crypto app.
 
 ---
 
@@ -64,25 +64,25 @@ MicroYield directly contributes to:
 ## ⚙️ Technical Architecture
 
 ### Frontend
-- React / Next.js
-- Mobile-first responsive UI
-- Savings dashboard with goal tracking
+- React / Next.js  
+- Mobile-first responsive UI  
+- Savings dashboard with goal tracking  
 
 ### Backend
-- Automated savings engine
-- Yield optimization logic
-- Risk management module
+- Automated savings engine  
+- Yield optimization logic  
+- Risk management module  
 
 ### On-Chain (Stellar + Soroban)
-- Smart contract for pooled deposits
-- Automated routing contract
-- Yield accounting module
-- Secure treasury management
+- Smart contract for pooled deposits  
+- Automated routing contract  
+- Yield accounting module  
+- Secure treasury management  
 
 ### Custody Model
-- Embedded wallet architecture
-- User-level balance tracking
-- Smart account abstraction
+- Embedded wallet architecture  
+- User-level balance tracking  
+- Smart account abstraction  
 
 ---
 
@@ -129,37 +129,18 @@ The model ensures long-term sustainability beyond grant funding.
 
 ---
 
-## 🛣️ Roadmap
-
-### Phase 1
-- UX prototype  
-- Smart contract design  
-- User validation interviews  
-
-### Phase 2
-- Stellar testnet integration  
-- Closed beta (500 users)  
-- Blend protocol integration  
-
-### Phase 3
-- Mainnet launch  
-- Marketing rollout  
-- Multi-protocol yield routing  
-
----
-
 ## 👥 Team
 
-### Aman Srivastava  
-GitHub: [aman-coder03](https://github.com/aman-coder03)  
+- **Aman Srivastava**  
+  GitHub: https://github.com/aman-coder03  
 
-### Ipshit Singh  
-GitHub: [ipshitsingh27](https://github.com/ipshitsingh27)  
+- **Ipshit Singh**  
+  GitHub: https://github.com/ipshitsingh27  
 
 ---
 
 ## 🔮 Vision
 
-MicroYield aims to become the default Web3 savings gateway for the next billion users, embedding decentralized finance into familiar financial habits and making global yield accessible to everyone.
+MicroYield aims to become the default Web3 savings gateway for the next billion users — embedding decentralized finance into familiar financial habits and making global yield accessible to everyone.
 
 ---
