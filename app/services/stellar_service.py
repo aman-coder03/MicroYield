@@ -9,9 +9,9 @@ from app.config import (
     VAULT_PUBLIC_KEY,
 )
 from stellar_sdk import SorobanServer
-from stellar_sdk import Contract
 
 from app.config import SOROBAN_CONTRACT_ID, SOROBAN_RPC_URL
+from stellar_sdk import Contract
 
 server = Server(HORIZON_URL)
 
