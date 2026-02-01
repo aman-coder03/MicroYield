@@ -60,7 +60,7 @@ impl Vault {
         let new_total = total.checked_add(amount).expect("Overflow");
         env.storage().persistent().set(&DataKey::TotalXlm, &new_total);
 
-        env.events().publish((symbol_short!("deposit_xlm"), user), amount);
+        env.events().publish((symbol_short!("deposit"), user), amount);
     }
 
     // ==============================
@@ -141,7 +141,7 @@ impl Vault {
         let new_total = total.checked_sub(amount).expect("Underflow");
         env.storage().persistent().set(&DataKey::TotalXlm, &new_total);
 
-        env.events().publish((symbol_short!("withdraw_xlm"), user), amount);
+        env.events().publish((symbol_short!("withdraw"), user), amount);
     }
 
     // ==============================

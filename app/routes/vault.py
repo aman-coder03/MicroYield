@@ -117,3 +117,9 @@ def withdraw_from_vault(
         "amount": request.amount,
         "message": "Withdraw successful"
     }
+
+
+@router.get("/debug-total")
+def debug_total():
+    from app.services.stellar_service import soroban_get_total_vault
+    return soroban_get_total_vault()

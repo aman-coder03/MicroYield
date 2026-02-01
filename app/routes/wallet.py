@@ -8,6 +8,8 @@ from decimal import Decimal
 from pydantic import BaseModel
 from app.database import SessionLocal
 from app.utils.rounding import calculate_roundoff
+from app.services.stellar_service import server
+
 
 from app.models.user import User
 from app.models.wallet import Wallet
@@ -136,10 +138,24 @@ def pay(
         soroban_result = None
         if roundoff_amount > 0:
             try:
+                # Check user balance before deposit
+                account_json = server.accounts().account_id(wallet.public_key).call()
+                xlm_balance = 0
+
+                for bal in account_json["balances"]:
+                    if bal["asset_type"] == "native":
+                        xlm_balance = float(bal["balance"])
+
+                print("Remaining XLM before deposit:", xlm_balance)
+
+                if xlm_balance < 0.5:
+                    raise Exception("Not enough XLM left for Soroban fee")
+
                 soroban_result = soroban_deposit(
                     user_secret=decrypted_secret,
-                    amount=int(roundoff_amount)
+                    amount=roundoff_amount
                 )
+
             except Exception as e:
                 print(f"Soroban deposit failed: {e}")
 

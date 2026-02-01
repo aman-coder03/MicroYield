@@ -245,7 +245,7 @@ def atomic_payment_with_roundoff(
 # SOROBAN FUNCTIONS - MATCHING YOUR CONTRACT
 # =========================
 
-def soroban_deposit_xlm(user_secret: str, amount: int):
+def soroban_deposit_xlm(user_secret: str, amount: Decimal):
     """
     Call the deposit_xlm function on your Soroban contract
     This deposits XLM savings into the contract
@@ -253,10 +253,11 @@ def soroban_deposit_xlm(user_secret: str, amount: int):
     soroban_server = SorobanServer(SOROBAN_RPC_URL)
     
     keypair = Keypair.from_secret(user_secret)
-    source_account = soroban_server.load_account(keypair.public_key)
+    source_account = server.load_account(keypair.public_key)
 
     # Convert amount to stroops (1 XLM = 10,000,000 stroops)
-    amount_stroops = int(amount * 10_000_000)
+    amount_decimal = Decimal(str(amount))
+    amount_stroops = int((amount_decimal * Decimal("10000000")).to_integral_value())
 
     tx = (
         TransactionBuilder(
@@ -276,10 +277,23 @@ def soroban_deposit_xlm(user_secret: str, amount: int):
         .build()
     )
 
+    # 1️⃣ Simulate first
+    simulation = soroban_server.simulate_transaction(tx)
+
+    if simulation.error:
+        print("SIMULATION ERROR:", simulation.error)
+        raise Exception(simulation.error)
+
+    # 2️⃣ Prepare using simulation footprint
     prepared_tx = soroban_server.prepare_transaction(tx)
+
+    # 3️⃣ Sign
     prepared_tx.sign(keypair)
+
+    # 4️⃣ Send
     response = soroban_server.send_transaction(prepared_tx)
-    print(response.status)
+
+    print("Deposit Success:", response.hash)
 
     return {"hash": response.hash, "successful": True}
 
@@ -488,3 +502,27 @@ def soroban_get_balance(user_public_key: str):
     """Get XLM balance from user summary"""
     summary = soroban_get_user_summary(user_public_key)
     return summary["xlm_balance"]
+
+def soroban_get_total_vault():
+    soroban_server = SorobanServer(SOROBAN_RPC_URL)
+
+    source_account = soroban_server.load_account(VAULT_PUBLIC_KEY)
+
+    tx = (
+        TransactionBuilder(
+            source_account=source_account,
+            network_passphrase=Network.TESTNET_NETWORK_PASSPHRASE,
+            base_fee=100,
+        )
+        .append_invoke_contract_function_op(
+            contract_id=SOROBAN_CONTRACT_ID,
+            function_name="total_xlm",
+            parameters=[],
+        )
+        .set_timeout(30)
+        .build()
+    )
+
+    simulation = soroban_server.simulate_transaction(tx)
+
+    return simulation
