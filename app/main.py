@@ -9,6 +9,9 @@ from fastapi import Depends
 from app.models import wallet
 from app.routes import wallet as wallet_routes
 from app.routes import vault as vault_routes
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 
 
@@ -16,6 +19,13 @@ app = FastAPI()
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(wallet_routes.router, prefix="/wallet", tags=["Wallet"])
 app.include_router(vault_routes.router, prefix="/vault", tags=["Vault"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # for dev
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 Base.metadata.create_all(bind=engine)
 
