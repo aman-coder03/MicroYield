@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from decimal import Decimal
 from pydantic import BaseModel
 from app.database import SessionLocal
+from app.utils.rounding import calculate_roundoff
+
 from app.models.user import User
 from app.models.wallet import Wallet
 from app.utils.dependencies import get_current_user
@@ -112,7 +114,8 @@ def pay(
     roundoff_amount = Decimal("0")
 
     if payment.roundoff_option == "invest":
-        roundoff_amount = Decimal("3")  # demo logic
+        roundoff, _ = calculate_roundoff(float(payment.amount))
+        roundoff_amount = Decimal(str(roundoff))
 
     try:
         payment_result = atomic_payment_with_roundoff(

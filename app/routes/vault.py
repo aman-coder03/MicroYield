@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from requests import request
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
 from app.models.user import User
@@ -12,7 +13,7 @@ from app.services.stellar_service import mint_usdc_to_vault
 from app.services.stellar_service import soroban_deposit
 from app.services.stellar_service import soroban_withdraw
 from app.services.stellar_service import soroban_get_balance
-
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -33,7 +34,8 @@ def deposit_to_vault(amount: float, current_user: str = Depends(get_current_user
     send_result = send_xlm(
         source_secret=decrypted_secret,
         destination=VAULT_PUBLIC_KEY,
-        amount=amount
+        amount = request.amount
+
     )
 
     # 2️⃣ Update smart contract state
@@ -77,8 +79,14 @@ def mint_usdc(amount: float):
 
 from app.services.stellar_service import soroban_withdraw
 
+class WithdrawRequest(BaseModel):
+    amount: float
+
 @router.post("/withdraw")
-def withdraw_from_vault(amount: float, current_user: str = Depends(get_current_user)):
+def withdraw_from_vault(
+    request: WithdrawRequest,
+    current_user: str = Depends(get_current_user)
+):
     db: Session = SessionLocal()
 
     user = db.query(User).filter(User.email == current_user).first()
@@ -91,13 +99,14 @@ def withdraw_from_vault(amount: float, current_user: str = Depends(get_current_u
     decrypted_secret = decrypt_secret(wallet.encrypted_secret)
 
     # 1️⃣ Reduce contract balance
-    contract_result = soroban_withdraw(decrypted_secret, int(amount))
+    contract_result = soroban_withdraw(decrypted_secret, int(request.amount))
 
     # 2️⃣ Send XLM from vault to user
     vault_send = send_xlm(
         source_secret=VAULT_SECRET_KEY,
         destination=wallet.public_key,
-        amount=amount
+        amount = request.amount
+
     )
 
     db.close()
@@ -105,6 +114,6 @@ def withdraw_from_vault(amount: float, current_user: str = Depends(get_current_u
     return {
         "contract_tx_hash": contract_result["hash"],
         "xlm_transfer_hash": vault_send["hash"],
-        "amount": amount,
+        "amount": request.amount,
         "message": "Withdraw successful"
     }

@@ -62,6 +62,15 @@
 
     <div class="place-card">
       <div style="padding: 40px;">
+
+        <input 
+          type="number"
+          id="withdrawAmount"
+          step="0.0000001"
+          placeholder="Enter amount to withdraw (XLM)"
+          style="width: 100%; padding: 14px; margin-bottom: 20px; border-radius: 10px; border: 2px solid rgba(0,229,255,0.3); background: rgba(15,28,36,0.8); color: white; font-family: 'Space Mono', monospace;"
+        >
+
         <button 
           onclick="withdraw()"
           style="width: 100%; padding: 16px; background: transparent; border: 2px solid var(--primary-cyan); color: var(--primary-cyan); border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px; transition: all 0.3s ease;"
@@ -70,9 +79,12 @@
         >
           Withdraw Funds
         </button>
+
         <p id="withdrawStatus" style="margin-top: 15px; font-size: 14px; display: none;"></p>
+
       </div>
     </div>
+
   </div>
 
   <!-- Navigation -->

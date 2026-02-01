@@ -13,10 +13,10 @@ async function loadVault() {
       `${data.on_chain_vault_balance || 0} XLM`;
     
     document.getElementById("principalVault").textContent = 
-      `${data.principal || 0} USDC`;
-    
+      `-- USDC`;
+
     document.getElementById("yieldVault").textContent = 
-      `${data.yield || 0} USDC`;
+      `-- USDC`;
 
   } catch (error) {
     console.error("Error loading vault:", error);
@@ -53,10 +53,11 @@ async function loadVault() {
  * Handle withdrawal
  */
 async function withdraw() {
+  const amount = parseFloat(document.getElementById("withdrawAmount").value);
   const statusElement = document.getElementById("withdrawStatus");
-  
-  // Confirm withdrawal
-  if (!confirm("Are you sure you want to withdraw your funds?")) {
+
+  if (!amount || amount <= 0) {
+    alert("Enter valid amount");
     return;
   }
 
@@ -65,23 +66,24 @@ async function withdraw() {
   statusElement.textContent = "Processing withdrawal...";
 
   try {
-    // Make withdrawal request
-    const response = await apiRequest("/vault/withdraw", "POST");
+    await apiRequest("/vault/withdraw", "POST", {
+      amount: amount
+    });
 
     statusElement.style.color = "var(--primary-teal)";
-    statusElement.textContent = `✅ Withdrawal successful! Amount: ${response.amount || 0} USDC`;
+    statusElement.textContent = "✅ Withdrawal successful!";
 
-    // Reload vault data after 2 seconds
     setTimeout(() => {
-      location.reload();
-    }, 2000);
+      loadVault();
+      document.getElementById("withdrawAmount").value = "";
+    }, 1500);
 
   } catch (error) {
-    console.error("Withdrawal error:", error);
     statusElement.style.color = "#ff6b6b";
     statusElement.textContent = `❌ Withdrawal failed: ${error.message}`;
   }
 }
+
 
 // Load data when page loads
 document.addEventListener("DOMContentLoaded", loadVault);
