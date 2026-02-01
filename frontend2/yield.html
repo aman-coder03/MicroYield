@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yield - MicroYield</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="crypto-background">
+  <div class="crypto-coin btc">₿</div>
+  <div class="crypto-coin eth">Ξ</div>
+  <div class="crypto-coin xlm">*</div>
+  <div class="crypto-coin usdc">$</div>
+  <div class="crypto-coin btc2">₿</div>
+  <div class="crypto-coin eth2">Ξ</div>
+  <div class="crypto-coin xlm2">*</div>
+  
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<div class="app-wrapper">
+  <header>
+    <h1>
+      <span class="brand-main">Yield</span> <span class="brand-accent">Overview</span>
+    </h1>
+    <p>Track your earnings</p>
+  </header>
+
+  <!-- Yield Content -->
+  <div id="yieldContent" class="place-container">
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 8px;">Current APY</p>
+        <h3 id="apy" style="margin: 0; font-size: 48px; color: var(--gold);">8.0%</h3>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 8px;">Total Yield Distributed</p>
+        <h3 id="distributed" style="margin: 0; font-size: 32px; color: var(--primary-teal);">--</h3>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <h3 style="margin-bottom: 20px;">How Yield Works</h3>
+        <p style="font-size: 14px; line-height: 1.8; text-align: left;">
+          Your USDC principal is invested in low-risk DeFi protocols on Stellar. 
+          Yield is calculated daily and distributed weekly. The current APY is variable 
+          based on market conditions but maintained around 8%.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <button onclick="window.location.href='dashboard.html'">🏠 Dashboard</button>
+    <button onclick="window.location.href='pay.html'">💳 Payment</button>
+    <button onclick="window.location.href='vault.html'">🏦 Vault</button>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="yield.js"></script>
+</body>
+</html>

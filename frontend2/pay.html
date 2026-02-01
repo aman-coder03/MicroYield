@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - MicroYield</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="crypto-background">
+  <div class="crypto-coin btc">₿</div>
+  <div class="crypto-coin eth">Ξ</div>
+  <div class="crypto-coin xlm">*</div>
+  <div class="crypto-coin usdc">$</div>
+  <div class="crypto-coin btc2">₿</div>
+  <div class="crypto-coin eth2">Ξ</div>
+  <div class="crypto-coin xlm2">*</div>
+  
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<div class="app-wrapper">
+  <header>
+    <h1>
+      <span class="brand-main">Smart</span> <span class="brand-accent">Payment</span>
+    </h1>
+    <p>Pay and save automatically</p>
+  </header>
+
+  <div class="place-container">
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <h3 style="margin-bottom: 20px;">Payment Details</h3>
+        
+        <div style="text-align: left; margin-bottom: 30px;">
+          <p style="font-size: 16px; margin-bottom: 10px;">
+            <strong>Merchant:</strong> Cafe Stellar
+          </p>
+          <p style="font-size: 24px; color: var(--primary-cyan); font-weight: bold;">
+            Bill: 7 XLM
+          </p>
+        </div>
+
+        <label style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 30px; cursor: pointer;">
+          <input 
+            type="checkbox" 
+            id="investToggle"
+            style="width: 20px; height: 20px; cursor: pointer;"
+          >
+          <span style="font-size: 16px;">Invest 3 XLM into USDC Vault</span>
+        </label>
+
+        <button 
+          onclick="makePayment()"
+          style="width: 100%; padding: 16px; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-teal)); color: #0a1219; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px;"
+        >
+          Confirm Payment
+        </button>
+
+        <p id="paymentStatus" style="margin-top: 20px; font-size: 14px; display: none;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <button onclick="window.location.href='dashboard.html'">🏠 Dashboard</button>
+    <button onclick="window.location.href='vault.html'">🏦 Vault</button>
+    <button onclick="window.location.href='yield.html'">📈 Yield</button>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="pay.js"></script>
+</body>
+</html>
