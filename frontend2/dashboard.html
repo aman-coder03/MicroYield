@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - MicroYield</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="crypto-background">
+  <div class="crypto-coin btc">₿</div>
+  <div class="crypto-coin eth">Ξ</div>
+  <div class="crypto-coin xlm">*</div>
+  <div class="crypto-coin usdc">$</div>
+  <div class="crypto-coin btc2">₿</div>
+  <div class="crypto-coin eth2">Ξ</div>
+  <div class="crypto-coin xlm2">*</div>
+  
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<!-- Fixed Balance Display -->
+<div class="yield-fixed">
+  <div class="balance-glow"></div>
+  <span class="label">Total Vault</span>
+  <span class="amount" id="totalVault">--</span>
+</div>
+
+<div class="app-wrapper">
+  <header>
+    <h1>
+      <span class="brand-main">Dashboard</span>
+    </h1>
+    <p>Your savings overview</p>
+  </header>
+
+  <!-- Dashboard Content -->
+  <div id="dashboardContent" class="place-container">
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 8px;">USDC Principal</p>
+        <h3 id="principal" style="margin: 0; font-size: 32px;">--</h3>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 8px;">Yield Earned</p>
+        <h3 id="yield" style="margin: 0; font-size: 32px; color: var(--primary-teal);">--</h3>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div style="padding: 40px;">
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 8px;">Current APY</p>
+        <h3 style="margin: 0; font-size: 32px; color: var(--gold);">8.0%</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <button onclick="window.location.href='pay.html'">💳 Make Payment</button>
+    <button onclick="window.location.href='vault.html'">🏦 View Vault</button>
+    <button onclick="window.location.href='yield.html'">📈 Yield Details</button>
+    <button onclick="logout()" style="border-color: #ff6b6b; color: #ff6b6b;">🚪 Logout</button>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
